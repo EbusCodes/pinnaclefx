@@ -162,7 +162,6 @@ class _TradeForYouHomePageState extends State<TradeForYouHomePage> {
                                                 itemCount: itemcount,
                                                 itemBuilder: (context, index) {
                                                   return ListTile(
-                                                      isThreeLine: true,
                                                       leading: Column(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
@@ -170,14 +169,14 @@ class _TradeForYouHomePageState extends State<TradeForYouHomePage> {
                                                           children: [
                                                             Image.asset(
                                                               'asset/images/invest.png',
-                                                              height: 30.w,
+                                                              height: 35.w,
                                                               filterQuality:
                                                                   FilterQuality
                                                                       .medium,
                                                             )
                                                           ]),
                                                       title: Text(
-                                                          '\$${data[index]['amount'].toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},',)}',
+                                                          '\$${data[index]['amount'].toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')} 🔒 ${data[index]['initDuration']} days',
                                                           style: TextStyle(
                                                               color:
                                                                   Color.fromRGBO(
@@ -187,76 +186,13 @@ class _TradeForYouHomePageState extends State<TradeForYouHomePage> {
                                                                       1),
                                                               fontWeight:
                                                                   FontWeight.w700,
-                                                              fontSize: 13.sp)),
-                                                      subtitle: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            '📌 ${data[index]['dateTime'].toString().substring(0, 10)}',
+                                                              fontSize: 14.sp)),
+                                                      subtitle: Text(
+                                                            '${data[index]['dateTime'].toString().substring(0, 10)} - ${data[index]['endDate'].toString().substring(0, 10)}',
                                                             style: TextStyle(
-                                                                fontSize: 9.sp),
+                                                                fontSize: 11.sp),
                                                           ),
-                                                          Text(
-                                                              '🎯 ${data[index]['endDate'].toString().substring(0, 10)}',
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      9.sp)),
-                                                        ],
-                                                      ),
-                                                      trailing: Expanded(
-                                                          child: Column(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .min,
-                                                              children: [
-                                                                Text(
-                                                                    'Daily Interest: '),
-                                                                Text(
-                                                                    '\$${data[index]['interest'].toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}',
-                                                                    style: TextStyle(fontSize: 9.sp),)
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .min,
-                                                              children: [
-                                                                Text(
-                                                                    'Total Interest: '),
-                                                                Text(
-                                                                    '\$${data[index]['totalInterest'].toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}',
-                                                                    style: TextStyle(fontSize: 9.sp))
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .min,
-                                                              children: [
-                                                                Text(
-                                                                    'Remaining days: '),
-                                                                Text(
-                                                                    '${data[index]['remDuration']}',
-                                                                    style: TextStyle(fontSize: 9.sp))
-                                                              ],
-                                                            ),
-                                                          ])));
+                                                      );
                                                 }),
                                                 Column(
                                         mainAxisAlignment:

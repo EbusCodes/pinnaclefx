@@ -55,7 +55,6 @@ class _GroupTradingHomePageState extends State<GroupTradingHomePage> {
             TextFormField(
               controller: capitalController,
               keyboardType: TextInputType.number,
-              textInputAction: TextInputAction.done,
               decoration: InputDecoration(
                 prefixStyle: TextStyle(
                     color: Color.fromRGBO(33, 17, 71, 1),
@@ -78,17 +77,17 @@ class _GroupTradingHomePageState extends State<GroupTradingHomePage> {
                       color: Color.fromRGBO(33, 17, 71, 1),
                     )),
               ),
-              onEditingComplete: () {
-                if(disableDropDownMenu == false){
-                  Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => GroupTradingAmount(
-                                        amount:
-                                            int.parse(capitalController.text),
-                                      )));
-                }
-              },
+              // onEditingComplete: () {
+              //   if(disableDropDownMenu == false){
+              //     Navigator.push(
+              //                 context,
+              //                 MaterialPageRoute(
+              //                     builder: (_) => GroupTradingAmount(
+              //                           amount:
+              //                               int.parse(capitalController.text),
+              //                         )));
+              //   }
+              // },
               style: amountInputTextStyle,
               onChanged: (value) {
                 setState(() {
